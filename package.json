@@ -1,0 +1,25 @@
+{
+    "name": "wdio-jasmine-boilerplate",
+    "version": "0.0.1",
+    "description": "A boilerplate project to get started with WebdriverIO, Jasmine and Browserstack.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SRGSSR/wdio-jasmine-boilerplate.git"
+    },
+    "keywords": ["webdriverio", "jasmine", "browserstack", "test"],
+    "author": "SRGSSR",
+    "license": "MIT",
+    "dependencies": {
+        "webdriverio": "^4.5.0",
+        "wdio-spec-reporter": "^0.0.3",
+        "wdio-junit-reporter": "^0.2.0",
+        "wdio-jasmine-framework": "^0.2.17",
+        "wdio-browserstack-service": "^0.1.4"
+    },
+    "devDependencies": {
+        "grunt": "^1.0.1",
+        "grunt-webdriver": "^2.0.3",
+        "grunt-contrib-jshint": "^1.1.0",
+        "load-grunt-tasks": "^3.5.2"
+    }
+}
