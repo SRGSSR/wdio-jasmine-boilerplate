@@ -20,7 +20,7 @@ This project is an example of how to get started using WebdriverIO for Selenium 
 
 ### Setup
 
-Run `npm install` to fetch all dependencies. To make use of the grunt tasks by command line, install `grunt-cli` globally:
+Run `npm install` to fetch all dependencies. To make use of the grunt's tasks by command line, install `grunt-cli` globally:
 
 ```sh
 npm install -g grunt-cli
@@ -35,7 +35,7 @@ export BROWSERSTACK_ACCESS_KEY="XXXXXXXXXXXXXXXXXXXX"
 
 ### Configuration
 
-The main configuration file is ``./conf/wdio.conf.js`. This file contains all configurations that are common to every environment. We've also set up three additional environment files: test, stage and prod:
+The main configuration file is `./conf/wdio.conf.js`. This file contains all configuration parameters that are common to every environment. We've also set up three additional environment files as an example:
 
 ```
 ./conf/wdio.test.conf.js # Test
@@ -43,11 +43,11 @@ The main configuration file is ``./conf/wdio.conf.js`. This file contains all co
 ./conf/wdio.prod.conf.js # Prod
 ```
 
-Use this files to override the main configuration for specific configuration parameters of the different environments. You can also add new environments in the `Gruntfile.js`.
+Use these files to override the main configuration for specific configuration parameters (e.g. changing the baseUrl of your tests). You can also add new environments in the `Gruntfile.js`.
 
 ### Run
 
-The `Gruntfile.js` contains a task for each environemnet, you can run them through the following commands:
+The `Gruntfile.js` contains a task for each environemnet configuration, you can run them with the following commands:
 
 ```sh
 grunt test  # Run test profile
@@ -56,11 +56,13 @@ grunt prod  # Run prod profile
 grunt       # Run prod profile
 ```
 
+If you add new environment configurations you'll need to create the tasks as well in your `Gruntfile.js`.
+
 ### Team
 
 If you have questions or problems don't hesistate to contact us:
 
-* Josep Boix [@ilemboix](https://github.com/ilemboix)
+* Josep Boix [@jboix](https://github.com/jboix)
 * Samuel Hügli [@shugli](https://github.com/shugli)
 
 ### References
