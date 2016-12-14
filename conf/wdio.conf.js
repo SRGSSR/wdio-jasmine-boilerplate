@@ -1,3 +1,6 @@
+var merge = require('deepmerge');
+var browserstack = require('browserstack-local');
+
 exports.config = {
     
     //
@@ -55,9 +58,23 @@ exports.config = {
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
         maxInstances: 2,
-        //
-        browserName: 'firefox'
+        browserName: 'firefox',
+        // Uncomment to activate BrowserStack local testing.
+        // https://www.browserstack.com/local-testing
+        //'browserstack.local': true
     }],
+
+    // ============
+    // BrowserStack Local Arguments
+    // ============
+    //
+    // Define your browser stack local modifiers here.
+    // https://www.browserstack.com/local-testing#modifiers
+    //
+    browserstackLocalArgs: {
+        // Route all traffic via machine where BrowserStackLocal Binary is running.
+        forcelocal: true
+    },
     //
     // ===================
     // Test Configurations
@@ -143,6 +160,32 @@ exports.config = {
             // do something
         }
     },
+
+    onPrepare: function (config, capabilities) {
+        var browserstackLocal = capabilities.some(function(capability) {
+            return capability['browserstack.local'];
+        });
+
+        if (browserstackLocal) {
+            var bs_args = merge({'key': config.key}, config.browserstackLocalArgs || {});
+
+            console.log("Connecting Browserstack Local...");
+            return new Promise(function(resolve, reject) {
+              exports.bs_local = new browserstack.Local();
+              exports.bs_local.start(bs_args, function(error) {
+                if (error) return reject(error);
+                console.log('Browserstack Local is ready!');
+                resolve();
+              });
+            });
+        }
+    },
+
+    onComplete: function (capabilties, specs) {
+        if (capabilities['browserstack.local']) {
+            exports.bs_local.stop(function() {});
+        }
+    }
     
     //
     // =====

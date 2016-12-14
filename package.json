@@ -10,6 +10,7 @@
     "author": "SRGSSR",
     "license": "MIT",
     "dependencies": {
+        "browserstack-local": "^1.2.0",
         "webdriverio": "^4.5.0",
         "wdio-spec-reporter": "^0.0.3",
         "wdio-junit-reporter": "^0.2.0",
