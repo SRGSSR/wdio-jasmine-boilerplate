@@ -1,4 +1,7 @@
 /node_modules/
+/errorShots/
+local.log
+browserstack.err
 
 # User-specific stuff:
 .idea/
