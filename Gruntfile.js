@@ -4,6 +4,9 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         webdriver: {
+            dev: {
+                configFile: './conf/wdio.dev.conf.js'
+            },
             test: {
                 configFile: './conf/wdio.test.conf.js'
             },
@@ -24,8 +27,9 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('prod', ['jshint', 'webdriver:prod']);
-    grunt.registerTask('test', ['jshint', 'webdriver:test']);
-    grunt.registerTask('stage', ['jshint', 'webdriver:stage']);
-    grunt.registerTask('default', ['prod']);
+    grunt.registerTask('dev',     ['jshint', 'webdriver:dev']);
+    grunt.registerTask('test',    ['jshint', 'webdriver:test']);
+    grunt.registerTask('stage',   ['jshint', 'webdriver:stage']);
+    grunt.registerTask('prod',    ['jshint', 'webdriver:prod']);
+    grunt.registerTask('default', ['dev']);
 };

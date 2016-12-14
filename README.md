@@ -6,7 +6,7 @@
 
 ### Overview
 
-This project is an example of how to get started using WebdriverIO for Selenium testing using node.js. It makes use of Jasmine framework, runs with spec and junit reporters, browserstack reporter and uses Grunt to manage tasks.
+This project is an example of how to get started using WebdriverIO for Selenium testing using node.js. It makes use of Jasmine framework, runs with spec and junit reporters, browserstack service, selenium-standalone service (for development) and uses Grunt to manage tasks.
 
 #### Table of contents
 
@@ -38,6 +38,7 @@ export BROWSERSTACK_ACCESS_KEY="XXXXXXXXXXXXXXXXXXXX"
 The main configuration file is `./conf/wdio.conf.js`. This file contains all configuration parameters that are common to every environment. We've also set up three additional environment files as an example:
 
 ```
+./conf/wdio.dev.conf.js  # Dev - Uses selenium-standalone
 ./conf/wdio.test.conf.js # Test
 ./conf/wdio.tage.conf.js # Stage
 ./conf/wdio.prod.conf.js # Prod
@@ -50,10 +51,11 @@ Use these files to override the main configuration for specific configuration pa
 The `Gruntfile.js` contains a task for each environemnet configuration, you can run them with the following commands:
 
 ```sh
+grunt dev   # Run dev profile
 grunt test  # Run test profile
 grunt stage # Run stage profile
 grunt prod  # Run prod profile
-grunt       # Run prod profile
+grunt       # Run dev profile
 ```
 
 If you add new environment configurations you'll need to create the tasks as well in your `Gruntfile.js`.
