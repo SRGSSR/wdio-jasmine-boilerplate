@@ -61,7 +61,7 @@ exports.config = {
         browserName: 'firefox',
         // Uncomment to activate BrowserStack local testing.
         // https://www.browserstack.com/local-testing
-        //'browserstack.local': true
+        // 'browserstack.local': true
     }],
 
     // ============
@@ -144,7 +144,12 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
-    reporters: ['spec','junit'],
+    reporters: ['spec', 'junit'],
+    reporterOptions: {
+        junit: {
+            outputDir: './report'
+        }
+    },
     
     //
     // Options to be passed to Jasmine.
@@ -181,8 +186,12 @@ exports.config = {
         }
     },
 
-    onComplete: function (capabilties, specs) {
-        if (capabilities['browserstack.local']) {
+    onComplete: function () {
+        var browserstackLocal = exports.config.capabilities.some(function(capability) {
+                return capability['browserstack.local'];
+            });
+
+        if (browserstackLocal) {
             exports.bs_local.stop(function() {});
         }
     }

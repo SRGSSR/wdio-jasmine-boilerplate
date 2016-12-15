@@ -1,5 +1,6 @@
 /node_modules/
 /errorShots/
+/report/
 local.log
 browserstack.err
 
