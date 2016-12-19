@@ -6,6 +6,12 @@
         "type": "git",
         "url": "https://github.com/SRGSSR/wdio-jasmine-boilerplate.git"
     },
+    "scripts": {
+        "dev": "grunt dev",
+        "test": "grunt test",
+        "stage": "grunt stage",
+        "prod": "grunt prod"
+    },
     "keywords": ["webdriverio", "jasmine", "browserstack", "test"],
     "author": "SRGSSR",
     "license": "MIT",

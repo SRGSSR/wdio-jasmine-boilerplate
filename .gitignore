@@ -3,6 +3,7 @@
 /report/
 local.log
 browserstack.err
+npm-debug.log
 
 # User-specific stuff:
 .idea/

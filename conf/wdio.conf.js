@@ -11,8 +11,8 @@ exports.config = {
     // should work too though). These services define specific user and key (or access key)
     // values you need to put in here in order to connect to these services.
     //
-    user: process.env.BROWSERSTACK_USERNAME,
-    key: process.env.BROWSERSTACK_ACCESS_KEY,
+    user: process.env.BS_USERNAME,
+    key: process.env.BS_ACCESS_KEY,
     
     
     //
@@ -188,8 +188,8 @@ exports.config = {
 
     onComplete: function () {
         var browserstackLocal = exports.config.capabilities.some(function(capability) {
-                return capability['browserstack.local'];
-            });
+            return capability['browserstack.local'];
+        });
 
         if (browserstackLocal) {
             exports.bs_local.stop(function() {});

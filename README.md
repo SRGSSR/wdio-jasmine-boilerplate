@@ -29,8 +29,8 @@ npm install -g grunt-cli
 Additionaly you have to set your username and access key for Browserstack as environment varaibles:
 
 ```sh
-export BROWSERSTACK_USERNAME="username"
-export BROWSERSTACK_ACCESS_KEY="XXXXXXXXXXXXXXXXXXXX"
+export BS_USERNAME="username"
+export BS_ACCESS_KEY="XXXXXXXXXXXXXXXXXXXX"
 ```
 
 ### Configuration
